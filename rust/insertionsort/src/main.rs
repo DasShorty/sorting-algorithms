@@ -11,6 +11,12 @@ fn main() {
 
     println!("Data after sorting: {:?}", data);
     println!("Time taken to sort: {:?}", end_time);
+
+    let mut input = String::new();
+
+    std::io::stdin()
+        .read_line(&mut input)
+        .expect("TODO: panic message");
 }
 
 fn generate_data() -> Vec<i64> {
