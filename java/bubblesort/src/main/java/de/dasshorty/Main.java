@@ -21,7 +21,7 @@ public class Main {
         System.out.println(sortedObjects);
 
         long endTime = startTime.compareTo(Instant.now());
-        System.out.println("Time elapsed: " + endTime + "s");
+        System.out.println("Time elapsed: " + endTime + "ms");
 
 
     }
