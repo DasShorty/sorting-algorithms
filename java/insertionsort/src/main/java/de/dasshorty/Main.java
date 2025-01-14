@@ -1,6 +1,5 @@
 package de.dasshorty;
 
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -14,14 +13,14 @@ public class Main {
 
         System.out.println(integers);
 
-        Instant startTime = Instant.now();
+        long startTime = System.nanoTime();
 
         List<Integer> sortedList = main.insertionSort(integers);
         System.out.println(sortedList);
 
-        long endTime = startTime.compareTo(Instant.now());
+        long endTime = System.nanoTime() - startTime;
 
-        System.out.println("Time elapsed: " + endTime + "ns");
+        System.out.println("Time taken to sort: " + endTime + "ns");
 
     }
 
@@ -29,7 +28,7 @@ public class Main {
         List<Integer> list = new ArrayList<>();
         Random random = new Random(System.currentTimeMillis());
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100000; i++) {
 
             list.add(random.nextInt());
 

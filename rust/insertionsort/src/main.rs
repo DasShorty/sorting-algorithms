@@ -1,5 +1,4 @@
 fn main() {
-
     let mut data = generate_data();
 
     println!("Data before sorting: {:?}", data);
@@ -12,7 +11,6 @@ fn main() {
 
     println!("Data after sorting: {:?}", data);
     println!("Time taken to sort: {:?}", end_time);
-
 }
 
 fn generate_data() -> Vec<i64> {
@@ -33,10 +31,8 @@ fn insertion_sort(list: &mut Vec<i64>) {
         while (current_element_position > 0) && (list[current_element_position - 1] > value) {
             let temp_value = list[current_element_position - 1];
             list[current_element_position] = temp_value;
-
             current_element_position -= 1;
         }
-
         list[current_element_position] = value;
     }
 }
