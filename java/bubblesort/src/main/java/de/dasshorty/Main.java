@@ -1,5 +1,6 @@
 package de.dasshorty;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -9,41 +10,39 @@ public class Main {
 
         Main main = new Main();
 
-        List<SortableObject> sortableObjects = main.generateRandomNumbers();
+        List<Integer> sortableObjects = main.generateRandomNumbers();
 
         System.out.println(sortableObjects);
 
-        long startTime = System.currentTimeMillis();
+        Instant startTime = Instant.now();
 
-        List<SortableObject> sortedObjects = main.bubbleSort(sortableObjects);
+        List<Integer> sortedObjects = main.bubbleSort(sortableObjects);
 
         System.out.println(sortedObjects);
 
-        long endTime = System.currentTimeMillis();
-        System.out.println((endTime - startTime) + "ms sort time");
+        long endTime = startTime.compareTo(Instant.now());
+        System.out.println("Time elapsed: " + endTime + "s");
 
 
     }
 
-    private List<SortableObject> generateRandomNumbers() {
+    private List<Integer> generateRandomNumbers() {
 
         Random random = new Random(System.currentTimeMillis());
-        List<SortableObject> list = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
 
         for (int i = 0; i < 1000; i++) {
 
-
             int data = random.nextInt();
             System.out.println("Adding on position " + i + " new element with value " + data);
-            list.add(new SortableObject(data, data));
+            list.add(data);
 
         }
-
 
         return list;
     }
 
-    public List<SortableObject> bubbleSort(List<SortableObject> input) {
+    public List<Integer> bubbleSort(List<Integer> input) {
 
         int size = input.size();
         boolean swapped;
@@ -58,7 +57,7 @@ public class Main {
                     continue;
                 }
 
-                if (input.get(element).weight() > input.get(element + 1).weight()) {
+                if (input.get(element) > input.get(element + 1)) {
                     this.swap(input, element);
                     swapped = true;
                 }
@@ -72,14 +71,14 @@ public class Main {
 
     }
 
-    private void swap(List<SortableObject> input, int dataPosition) {
+    private void swap(List<Integer> input, int dataPosition) {
 
         int secondDataPosition = dataPosition + 1;
 
-        SortableObject sortableObject = input.get(dataPosition);
-        SortableObject secondSortableObject = input.get(secondDataPosition);
+        int sortableObject = input.get(dataPosition);
+        int secondSortableObject = input.get(secondDataPosition);
 
-//        System.out.println("Swapping " + sortableObject.data() + " => " + secondSortableObject.data());
+        System.out.println("Swapping " + sortableObject + " => " + secondSortableObject);
 
         input.set(secondDataPosition, sortableObject);
         input.set(dataPosition, secondSortableObject);
