@@ -19,8 +19,8 @@ fn main() {
 fn generate_data() -> Vec<i64> {
     let mut data: Vec<i64> = Vec::new();
 
-    for _i in 0..20 {
-        data.push(rand::random_range(1..100));
+    for _i in 0..1000 {
+        data.push(rand::random());
     }
 
     data
