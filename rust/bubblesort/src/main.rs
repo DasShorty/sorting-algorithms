@@ -1,6 +1,6 @@
 fn main() {
     let mut data = generate_data();
-    // println!("Before sorting: {:?}", data);
+    println!("Before sorting: {:?}", data);
 
     let start_time = std::time::Instant::now();
 
@@ -8,7 +8,7 @@ fn main() {
 
     let end_time = start_time.elapsed();
 
-    // println!("After sorting: {:?}", data);
+    println!("After sorting: {:?}", data);
     println!("Time taken: {:?}", end_time);
 }
 
