@@ -1,18 +1,14 @@
 use std::io::stdin;
 
 pub fn read_console() -> String {
-
     let mut input = String::new();
 
-    stdin()
-        .read_line(&mut input)
-        .expect("Failed to read line");
-
+    stdin().read_line(&mut input).expect("Failed to read line");
 
     input
 }
 
-pub(crate) enum SortingAlgorithm {
+pub enum SortingAlgorithm {
     BubbleSort,
     InsertionSort,
     MergeSort,
@@ -20,9 +16,7 @@ pub(crate) enum SortingAlgorithm {
 }
 
 pub fn get_random_data() -> Vec<i64> {
-
     let mut data: Vec<i64> = Vec::new();
-
 
     for _i in 0..1000 {
         data.push(rand::random());
@@ -55,5 +49,6 @@ fn show_menu() -> String {
 
     read_console()
 }
-
-fn main() {}
+pub(crate) fn main() {
+    println!("Loading lib.rs");
+}
