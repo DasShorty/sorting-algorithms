@@ -11,9 +11,12 @@ public class Main {
         List<Integer> integers = randomData();
 
         int[] array = integers.stream().mapToInt(Integer::intValue).toArray();
+
+        System.out.println("Unsorted list: " + Arrays.toString(array));
+
         quickSort(array, 0, integers.size() - 1);
 
-        System.out.println(Arrays.toString(array));
+        System.out.println("Sorted list:" + Arrays.toString(array));
     }
 
     private static List<Integer> randomData() {
@@ -22,9 +25,9 @@ public class Main {
 
         Random random = new Random(System.currentTimeMillis());
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1000; i++) {
 
-            list.add(random.nextInt(100));
+            list.add(random.nextInt());
 
         }
 
